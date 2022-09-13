@@ -4,26 +4,6 @@
 		"ParameterValue": "InfraProject"
 	},
 	{
-		"ParameterKey": "VPCID",
-		"ParameterValue": "vpc-03164e1b68b806dc5"
-	},
-	{
-		"ParameterKey": "PrivateSubnet1",
-		"ParameterValue": "subnet-02b993b886ba2bb45"
-	},
-	{
-		"ParameterKey": "PrivateSubnet2",
-		"ParameterValue": "subnet-0fcb1c5a89b9d4fca"
-	},
-	{
-		"ParameterKey": "PublicSubnet1",
-		"ParameterValue": "subnet-08537ae7818d9e663"
-	},
-	{
-		"ParameterKey": "PublicSubnet2",
-		"ParameterValue": "subnet-09cefd85ec7a2a8fe"
-	},
-	{
 		"ParameterKey": "InfraName",
 		"ParameterValue": "MyFirstCloudStack"
 	},
