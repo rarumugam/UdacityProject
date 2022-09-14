@@ -16,7 +16,7 @@
 		"ParameterValue": "4"
 	},
 	{
-		"ParameterKey": "AllowedS3EndPoint",
-		"ParameterValue": "demo-s3-bucket"
+		"ParameterKey": "WebServerAMI",
+		"ParameterValue": "ami-0ddf424f81ddb0720"
 	}		
 ]

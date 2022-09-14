@@ -1,23 +1,24 @@
-Description: Project 2 Completion/ Udacity
+Description: Project 2 Completion/ Udagram
 
 Parameters:
-  EnvironmentName:
-    Description: An environment name that will be prefixed to resource names
-    Type: String
   
-  InfraName:
-    Description: An Infrastructure name that will be prefixed to resource names
-    Type: String
-  MinWebAppServerSize:
-    Description: Minimum allowed size
-    Type: String
-  MaxWebAppServerSize:
-    Description: Minimum allowed size
-    Type: String
-  AllowedS3EndPoint:
-    Description: Allowed S3 location
-    Type: String
-  
+    EnvironmentName:
+      Description: An environment name that will be prefixed to resource names
+      Type: String    
+    InfraName:
+      Description: An Infrastructure name that will be prefixed to resource names
+      Type: String
+    MinWebAppServerSize:
+      Description: Minimum allowed size
+      Type: String
+    MaxWebAppServerSize:
+      Description: Minimum allowed size
+      Type: String
+    WebServerAMI:
+      Description: Webserver AMI 
+      Type: String
+    
+    
 
   S3AccessRole:
       Type: AWS::IAM::Role
@@ -73,6 +74,10 @@ Parameters:
           FromPort: 80
           ToPort: 80
           CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
 
      
       SecurityGroupEgress:
@@ -90,7 +95,12 @@ Parameters:
            apt-get update -y
            apt-get install apache2 -y
            systemctl start apache2.service
-      ImageId: ami-052efd3df9dad4825      
+           sudo apt-get install awscli -y
+            cd /var/www/html
+            aws s3 cp s3://udagram-8131-1129-4572/index.html .
+            sleep 2        
+            sudo systemctl restart apache2.service
+      ImageId: !Ref WebServerAMI      
       SecurityGroups:
         - Ref: WebServerSecGroup
       InstanceType: t3.medium
