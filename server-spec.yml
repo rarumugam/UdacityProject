@@ -125,7 +125,6 @@ Resources:
   WebAppLB:
     Type: AWS::ElasticLoadBalancingV2::LoadBalancer
     Properties:
-      Subnets: 
       Subnets:
         - Fn::ImportValue: !Sub "${EnvironmentName}-PUB1-SN"
         - Fn::ImportValue: !Sub "${EnvironmentName}-PUB2-SN"
