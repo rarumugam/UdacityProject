@@ -16,6 +16,7 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - run: echo World
+      - run: echo $MY_FIRST_ENV
 workflows:
   say-hello-workflow:
     jobs: 
